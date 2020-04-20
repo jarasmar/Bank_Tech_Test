@@ -24,5 +24,12 @@ describe Account do
     it 'raises an error if not enough balance' do
       expect { account.withdrawal(10) }.to raise_error 'Insufficient balance in your account'
     end
+
+    it 'deducts withdrawal amount from balance' do
+      account.deposit(10)
+      account.withdrawal(5)
+
+      expect(account.balance).to eq 5
+    end
   end
 end
