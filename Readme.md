@@ -37,6 +37,20 @@ How to run it (is it a command line tool? Do you have to load it into IRB? Is is
 
 How to run the tests
 
+## User Stories
+```
+I can make a Deposit in an account.
+```
+```
+I can make a Withdrawal from an account.
+```
+```
+I can't make a Withdrawal if the amount is bigger than the balance in the account.
+```
+```
+I can print my bank statement and see all my transactions (date-credit-debit-balance).
+```
+
 ## Domain Model
 
 I am going to start working in a single class 'Account' that will take the main functionality.
