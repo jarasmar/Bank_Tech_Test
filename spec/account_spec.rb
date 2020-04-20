@@ -21,7 +21,7 @@ describe Account do
   context '#withdrawal' do
     it { is_expected.to respond_to :withdrawal }
 
-    it 'deducts withdrawal amount from balance' do
+    it 'raises an error if not enough balance' do
       expect { account.withdrawal(10) }.to raise_error 'Insufficient balance in your account'
     end
   end
