@@ -17,4 +17,8 @@ describe Account do
       expect(account.balance).to eq 10
     end
   end
+
+  context '#withdrawal' do
+    it { is_expected.to respond_to :withdrawal }
+  end
 end
