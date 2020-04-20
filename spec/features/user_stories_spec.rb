@@ -8,8 +8,8 @@ describe 'User Stories' do
   end
 
   context 'withdrawal' do
-    it 'can make a withdrawal from an account' do
-      expect { account.withdrawal }.not_to raise_error
+    it 'cant make a withdrawal if amout is bigger than balance' do
+      expect { account.withdrawal(10) }.to raise_error 'Insufficient balance in your account'
     end
   end
 end

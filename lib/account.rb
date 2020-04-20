@@ -10,6 +10,7 @@ class Account
     @balance += amount
   end
 
-  def withdrawal
+  def withdrawal(amount)
+    raise 'Insufficient balance in your account'
   end
 end
