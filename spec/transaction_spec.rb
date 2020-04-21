@@ -9,7 +9,7 @@ describe Transaction do
 
     it 'takes a deposit amount' do
       trans.make_deposit(10, 0)
-      expect(trans.deposit).to eq 10
+      expect(trans.deposit).to eq '10.00'
     end
   end
 
@@ -19,7 +19,7 @@ describe Transaction do
     it 'takes a withdrawal amount' do
       trans.make_withdrawal(5, 10)
 
-      expect(trans.withdrawal).to eq 5
+      expect(trans.withdrawal).to eq '5.00'
     end
   end
 
