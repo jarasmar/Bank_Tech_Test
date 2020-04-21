@@ -55,4 +55,10 @@ describe Account do
       expect(account.trans_history).to include({ :date => "20/04/2020", :deposit => nil, :withdrawal => 5, :balance => 5 })
     end
   end
+
+  context '#statement' do
+    it 'prints an statement' do
+      expect(account.print_statement).to eq 'statement'
+    end
+  end
 end

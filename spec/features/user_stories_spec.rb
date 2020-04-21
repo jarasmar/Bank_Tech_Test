@@ -20,7 +20,7 @@ describe 'User Stories' do
 
   context 'statement' do
     it 'can print a bank statement' do
-
+      expect { account.print_statement }.not_to raise_error
     end
   end
 end

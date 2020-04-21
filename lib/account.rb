@@ -1,4 +1,5 @@
 require_relative 'transaction'
+require_relative 'statement'
 
 class Account
 
@@ -8,6 +9,7 @@ class Account
     @balance = 0
     @trans_history = []
     @trans = Transaction.new
+    @stat = Statement.new
   end
 
   def make_deposit(amount)
@@ -20,5 +22,9 @@ class Account
 
     @trans_history << @trans.make_withdrawal(amount, @balance)
     @balance -= amount
+  end
+
+  def print_statement
+    @stat.print_statement
   end
 end
