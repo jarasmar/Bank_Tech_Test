@@ -22,4 +22,15 @@ describe Transaction do
       expect(trans.withdrawal).to eq 5
     end
   end
+
+  context '#date' do
+    it 'saves the date of a transaction' do
+      # stub date
+      @date = Time.parse('20/04/2020')
+      Time.stub(:new).and_return(@date)
+
+      trans.save_date
+      expect(trans.date).to eq '20/04/2020'
+    end
+  end
 end

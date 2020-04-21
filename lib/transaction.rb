@@ -2,21 +2,26 @@ require_relative 'account'
 
 class Transaction
 
-  attr_reader :deposit, :withdrawal
+  attr_reader :deposit, :withdrawal, :date
 
   def initialize
     # @balance = Account.balance
-    @deposit = 0
-    @withdrawal = 0
+    @deposit = nil
+    @withdrawal = nil
+    @date = nil
   end
 
   def make_deposit(amount)
     @deposit = amount
-    # @balance += amount
+    save_date
   end
 
   def make_withdrawal(amount)
     @withdrawal = amount
-    # @balance -= amount
+    save_date
+  end
+
+  def save_date
+    @date = Time.new.strftime("%d/%m/%Y")
   end
 end
