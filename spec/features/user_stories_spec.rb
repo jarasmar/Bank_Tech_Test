@@ -17,4 +17,10 @@ describe 'User Stories' do
       expect { account.make_withdrawal(5) }.not_to raise_error
     end
   end
+
+  context 'statement' do
+    it 'can print a bank statement' do
+
+    end
+  end
 end
