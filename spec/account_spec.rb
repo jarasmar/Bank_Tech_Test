@@ -15,7 +15,7 @@ describe Account do
     end
 
     it 'transaction history is empty' do
-      expect(account.trans_history).to eq []
+      expect(account.transaction_history).to eq []
     end
   end
 
@@ -30,7 +30,7 @@ describe Account do
     it 'adds a movement to transaction history' do
       account.make_deposit(10)
 
-      expect(account.trans_history).to include({ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' })
+      expect(account.transaction_history).to include({ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' })
     end
   end
 
@@ -52,14 +52,14 @@ describe Account do
       account.make_deposit(10)
       account.make_withdrawal(5)
 
-      expect(account.trans_history).to include({ :date => "20/04/2020", :deposit => nil, :withdrawal => '5.00', :balance => '5.00' })
+      expect(account.transaction_history).to include({ :date => "20/04/2020", :deposit => nil, :withdrawal => '5.00', :balance => '5.00' })
     end
   end
 
   context '#statement' do
     it 'prints an statement' do
       account.make_deposit(10)
-      expect(account.generate_stat).to include '20/04/2020 || 10.00 ||  || 10'
+      expect(account.generate_statement).to include '20/04/2020 || 10.00 ||  || 10'
     end
   end
 end

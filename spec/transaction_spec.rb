@@ -2,14 +2,14 @@ require 'transaction'
 
 describe Transaction do
 
-  subject(:trans) { described_class.new }
+  subject(:transaction) { described_class.new }
 
   context '#deposit' do
     it { is_expected.to respond_to :make_deposit }
 
     it 'takes a deposit amount' do
-      trans.make_deposit(10, 0)
-      expect(trans.deposit).to eq '10.00'
+      transaction.make_deposit(10, 0)
+      expect(transaction.deposit).to eq '10.00'
     end
   end
 
@@ -17,9 +17,9 @@ describe Transaction do
     it { is_expected.to respond_to :make_withdrawal }
 
     it 'takes a withdrawal amount' do
-      trans.make_withdrawal(5, 10)
+      transaction.make_withdrawal(5, 10)
 
-      expect(trans.withdrawal).to eq '5.00'
+      expect(transaction.withdrawal).to eq '5.00'
     end
   end
 
@@ -29,8 +29,8 @@ describe Transaction do
       @date = Time.parse('20/04/2020')
       Time.stub(:new).and_return(@date)
 
-      trans.save_date
-      expect(trans.date).to eq '20/04/2020'
+      transaction.save_date
+      expect(transaction.date).to eq '20/04/2020'
     end
   end
 end

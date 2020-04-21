@@ -1,10 +1,10 @@
 class Statement
 
-  def generate_stat(trans_history)
+  def generate_statement(transaction_history)
     header = "date       || credit || debit || balance"
     stats = []
 
-    trans_history.each do |x|
+    transaction_history.each do |x|
       stats << "#{x[:date]} || #{x[:deposit]} || #{x[:withdrawal]} || #{x[:balance]}"
     end
 
