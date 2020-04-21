@@ -2,10 +2,11 @@ require_relative 'transaction'
 
 class Account
 
-  attr_reader :balance
+  attr_reader :balance, :trans_history
 
   def initialize
     @balance = 0
+    @trans_history = []
     @trans = Transaction.new
   end
 

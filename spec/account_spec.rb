@@ -7,6 +7,10 @@ describe Account do
     it 'balance is 0' do
       expect(account.balance).to eq 0
     end
+
+    it 'transaction history is empty' do
+      expect(account.trans_history).to eq []
+    end
   end
 
   context '#deposit' do
