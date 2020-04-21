@@ -58,7 +58,8 @@ describe Account do
 
   context '#statement' do
     it 'prints an statement' do
-      expect(account.print_statement).to eq 'statement'
+      account.make_deposit(10)
+      expect(account.print_statement).to include '20/04/2020 || 10 ||  || 10'
     end
   end
 end

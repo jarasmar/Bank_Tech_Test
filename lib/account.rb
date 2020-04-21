@@ -25,6 +25,6 @@ class Account
   end
 
   def print_statement
-    @stat.print_statement
+    @stat.print_statement(@trans_history)
   end
 end

@@ -1,7 +1,14 @@
 class Statement
 
-  def print_statement
-    return 'statement'
+  def print_statement(trans_history)
+    stats = []
+    header = "date       || credit || debit || balance"
+
+    trans_history.each do |x|
+      stats << "#{x[:date]} || #{x[:deposit]} || #{x[:withdrawal]} || #{x[:balance]}"
+    end
+
+    return header + "\n" + stats.join("\n")
   end
 
   # Example of output
