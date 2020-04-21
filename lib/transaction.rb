@@ -11,16 +11,16 @@ class Transaction
     @date = nil
   end
 
-  def make_deposit(amount)
+  def make_deposit(amount, balance)
     @deposit = amount
     save_date
-    return { date: @date, deposit: @deposit, withdrawal: nil }
+    return { date: @date, deposit: @deposit, withdrawal: nil, balance: balance + amount }
   end
 
-  def make_withdrawal(amount)
+  def make_withdrawal(amount, balance)
     @withdrawal = amount
     save_date
-    return { date: @date, deposit: nil, withdrawal: @withdrawal }
+    return { date: @date, deposit: nil, withdrawal: @withdrawal, balance: balance - amount }
   end
 
   def save_date

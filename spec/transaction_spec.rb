@@ -8,7 +8,7 @@ describe Transaction do
     it { is_expected.to respond_to :make_deposit }
 
     it 'takes a deposit amount' do
-      trans.make_deposit(10)
+      trans.make_deposit(10, 0)
       expect(trans.deposit).to eq 10
     end
   end
@@ -17,7 +17,7 @@ describe Transaction do
     it { is_expected.to respond_to :make_withdrawal }
 
     it 'takes a withdrawal amount' do
-      trans.make_withdrawal(5)
+      trans.make_withdrawal(5, 10)
 
       expect(trans.withdrawal).to eq 5
     end

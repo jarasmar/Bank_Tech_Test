@@ -30,7 +30,7 @@ describe Account do
     it 'adds a movement to transaction history' do
       account.make_deposit(10)
 
-      expect(account.trans_history).to include({ :date => "20/04/2020", :deposit => 10, :withdrawal => nil })
+      expect(account.trans_history).to include({ :date => "20/04/2020", :deposit => 10, :withdrawal => nil, :balance => 10 })
     end
   end
 
@@ -52,7 +52,7 @@ describe Account do
       account.make_deposit(10)
       account.make_withdrawal(5)
 
-      expect(account.trans_history).to include({ :date => "20/04/2020", :deposit => nil, :withdrawal => 5 })
+      expect(account.trans_history).to include({ :date => "20/04/2020", :deposit => nil, :withdrawal => 5, :balance => 5 })
     end
   end
 end
