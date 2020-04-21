@@ -58,13 +58,13 @@ When the project starts getting more complex I will start refactoring to follow 
 The final Domain Model should look something similar to the one below, where the classes on the left side delegate on the right side ones.
 
 
-| BANK            | ACCOUNT      | TRANSACTION    | STATEMENT       |
-| :-------------- |:-------------|:---------------|:----------------|
-|                 | @balance = 0 | @date          |                 |
-|                 | @trans = []  | @credit        |                 |
-|                 |              | @debit         |                 |
-|                 |              | @balance       |                 |
-| --------------- |--------------|----------------|-----------------|
-| #deposit()      | #deposit()   | #deposit()     | #generate_stat  |
-| #withdrawal()   | #withdrawal()| #withdrawal()  |                 |
-| #print_stat     |              |                |                 |
+| BANK            | ACCOUNT       | TRANSACTION    | STATEMENT       |
+| :-------------- |:--------------|:---------------|:----------------|
+| @account        | @balance = 0  | @deposit       |                 |
+|                 | @trans_hist   | @withdrawal    |                 |
+|                 | @trans        | @date          |                 |
+|                 | @stat         |                |                 |
+| --------------- |---------------|----------------|-----------------|
+| #deposit()      | #deposit()    | #deposit()     | #generate_stat  |
+| #withdrawal()   | #withdrawal() | #withdrawal()  |                 |
+| #print_stat     | #generate_stat| #save_date     |                 |

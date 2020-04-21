@@ -7,7 +7,6 @@ describe Bank do
   subject(:bank) { described_class.new(account_class) }
 
   it 'can make a deposit on an account' do
-    # expect(account_class).to receive(:make_deposit).with(10).once
     expect(account_class).to receive(:make_deposit).once
     bank.make_deposit(10, bank.account)
   end

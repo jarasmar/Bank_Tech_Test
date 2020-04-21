@@ -24,7 +24,7 @@ class Account
     @balance -= amount
   end
 
-  def print_statement
-    @stat.print_statement(@trans_history)
+  def generate_stat
+    @stat.generate_stat(@trans_history)
   end
 end

@@ -7,7 +7,7 @@ describe Statement do
   subject(:stat) { described_class.new }
 
   it 'prints a statement' do
-    expect(stat.print_statement(account_class.trans_history)).to include '20/04/2020 || 10.00 ||  || 10'
+    expect(stat.generate_stat(account_class.trans_history)).to include '20/04/2020 || 10.00 ||  || 10'
   end
 
 end

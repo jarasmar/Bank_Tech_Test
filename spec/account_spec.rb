@@ -59,7 +59,7 @@ describe Account do
   context '#statement' do
     it 'prints an statement' do
       account.make_deposit(10)
-      expect(account.print_statement).to include '20/04/2020 || 10.00 ||  || 10'
+      expect(account.generate_stat).to include '20/04/2020 || 10.00 ||  || 10'
     end
   end
 end
