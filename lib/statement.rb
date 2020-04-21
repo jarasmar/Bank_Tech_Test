@@ -8,6 +8,6 @@ class Statement
       stats << "#{x[:date]} || #{x[:deposit]} || #{x[:withdrawal]} || #{x[:balance]}"
     end
 
-    return header + "\n" + stats.join("\n")
+    return header + "\n" + stats.reverse.join("\n")
   end
 end
