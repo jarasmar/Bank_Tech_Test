@@ -12,15 +12,18 @@ class Transaction
   end
 
   def make_deposit(amount, balance)
-    @deposit = amount
+    # formats integer to two decimals
+    @deposit = ("%.2f" % amount)
     save_date
-    return { date: @date, deposit: @deposit, withdrawal: nil, balance: balance + amount }
+    current_balance = "%.2f" % (balance + amount)
+    return { date: @date, deposit: @deposit, withdrawal: nil, balance: current_balance }
   end
 
   def make_withdrawal(amount, balance)
-    @withdrawal = amount
+    @withdrawal = ("%.2f" % amount)
     save_date
-    return { date: @date, deposit: nil, withdrawal: @withdrawal, balance: balance - amount }
+    current_balance = "%.2f" % (balance - amount)
+    return { date: @date, deposit: nil, withdrawal: @withdrawal, balance: current_balance }
   end
 
   def save_date
