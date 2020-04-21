@@ -2,13 +2,33 @@
 
 Practice for Tech Tests (OO Design and TDD)
 
+## Setup
+
+#### Getting started
+
+- Clone or Download the Repository
+- Run `bundle install` to get all the dependencies
+
+#### Usage
+
+- Open `IRB` in your terminal
+- `load './lib/bank.rb'`
+- `bank = Bank.new`
+
+
+#### Running tests
+
+- Run `rspec` from your terminal
+
+
 ## Requirements
 - You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
 - Deposits, withdrawal.
 - Account statement (date, amount, balance) printing.
 - Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
-## Acceptance criteria
+
+### Acceptance criteria
 
 **Given** a client makes a deposit of 1000 on 10-01-2012  
 **And** a deposit of 2000 on 13-01-2012  
@@ -24,20 +44,8 @@ date       || credit  || debit  || balance
 ```
 
 
-## Getting started
-
-How to install it (what to clone, what to run to get all dependencies)
-
-## Usage
-
-How to run it (is it a command line tool? Do you have to load it into IRB? Is is a web application? What port needs to be used?)
-
-
-## Running tests
-
-How to run the tests
-
 ## User Stories
+
 ```
 I can make a Deposit in an account.
 ```
@@ -51,11 +59,12 @@ I can't make a Withdrawal if the amount is bigger than the balance in the accoun
 I can print my bank statement and see all my transactions (date-credit-debit-balance).
 ```
 
-## Domain Model
+## Domain Model & Approach
 
 I am going to start working in a single class 'Account' that will take the main functionality.
-When the project starts getting more complex I will start refactoring to follow single responsability.
-The final Domain Model should look something similar to the one below, where the classes on the left side delegate on the right side ones.
+It will evolve into a second class Transaction and then Statement.
+Finally I will build a class Bank that manages all process from an account.
+The final Domain Model will look something similar to the one below, where the classes on the left side delegate on the right side ones.
 
 
 | BANK            | ACCOUNT       | TRANSACTION    | STATEMENT       |
@@ -68,3 +77,8 @@ The final Domain Model should look something similar to the one below, where the
 | #deposit()      | #deposit()    | #deposit()     | #generate_stat  |
 | #withdrawal()   | #withdrawal() | #withdrawal()  |                 |
 | #print_stat     | #generate_stat| #save_date     |                 |
+
+
+## Final Product Functionality
+
+![image](/images/irb_bank_app.png)
