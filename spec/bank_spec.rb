@@ -17,7 +17,7 @@ describe Bank do
   end
 
   it 'can print an statement from an account' do
-    expect(account_class).to receive(:print_statement)
+    expect(account_class).to receive(:generate_stat)
     bank.print_statement(bank.account)
   end
 end

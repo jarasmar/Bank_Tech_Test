@@ -17,7 +17,7 @@ class Bank
   end
 
   def print_statement(account)
-    statement = account.print_statement
+    statement = account.generate_stat
     puts statement
   end
 end
