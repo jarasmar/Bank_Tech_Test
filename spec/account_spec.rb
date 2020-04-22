@@ -68,10 +68,10 @@ describe Account do
 
   context '#statement' do
     it 'prints an statement' do
-      expect(transaction_class).to receive(:make_deposit).once
-      expect(statement_class).to receive(:generate_statement).and_return('20/04/2020 || 10.00 ||  || 10')
+      expect(transaction_class).to receive(:make_deposit).and_return({ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' })
+      expect(statement_class).to receive(:generate_statement).with([{ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' }])
       account.make_deposit(10)
-      expect(account.generate_statement).to include '20/04/2020 || 10.00 ||  || 10'
+      account.print_statement
     end
   end
 end

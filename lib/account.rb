@@ -24,7 +24,8 @@ class Account
     @balance -= amount
   end
 
-  def generate_statement
-    @statement.generate_statement(@transaction_history)
+  def print_statement
+    statement = @statement.generate_statement(@transaction_history)
+    puts statement
   end
 end
