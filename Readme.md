@@ -12,8 +12,8 @@ Practice for Tech Tests (OO Design and TDD)
 #### Usage
 
 - Open `IRB` in your terminal
-- `load './lib/bank.rb'`
-- `bank = Bank.new`
+- `load './lib/account.rb'`
+- `account = Account.new`
 
 
 #### Running tests
