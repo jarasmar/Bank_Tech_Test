@@ -5,11 +5,11 @@ class Account
 
   attr_reader :balance, :transaction_history
 
-  def initialize
+  def initialize(transaction = Transaction.new, statement = Statement.new)
     @balance = 0
     @transaction_history = []
-    @transaction = Transaction.new
-    @statement = Statement.new
+    @transaction = transaction
+    @statement = statement
   end
 
   def make_deposit(amount)
@@ -24,7 +24,8 @@ class Account
     @balance -= amount
   end
 
-  def generate_statement
-    @statement.generate_statement(@transaction_history)
+  def print_statement
+    statement = @statement.generate_statement(@transaction_history)
+    puts statement
   end
 end

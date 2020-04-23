@@ -1,7 +1,11 @@
 require 'account'
 
 describe Account do
-  subject(:account) { described_class.new }
+
+  let(:transaction_class) { double(:transaction) }
+  let(:statement_class) { double(:statement) }
+
+  subject(:account) { described_class.new(transaction_class, statement_class) }
 
   before do
     # stub time for consistent testing
@@ -23,11 +27,13 @@ describe Account do
     it { is_expected.to respond_to :make_deposit }
 
     it 'adds deposit amount to balance' do
+      expect(transaction_class).to receive(:make_deposit).once
       account.make_deposit(10)
       expect(account.balance).to eq 10
     end
 
     it 'adds a movement to transaction history' do
+      expect(transaction_class).to receive(:make_deposit).and_return({ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' })
       account.make_deposit(10)
 
       expect(account.transaction_history).to include({ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' })
@@ -42,6 +48,8 @@ describe Account do
     end
 
     it 'deducts withdrawal amount from balance' do
+      expect(transaction_class).to receive(:make_deposit).once
+      expect(transaction_class).to receive(:make_withdrawal).once
       account.make_deposit(10)
       account.make_withdrawal(5)
 
@@ -49,6 +57,8 @@ describe Account do
     end
 
     it 'adds a movement to transaction history' do
+      expect(transaction_class).to receive(:make_deposit).once
+      expect(transaction_class).to receive(:make_withdrawal).and_return({ :date => "20/04/2020", :deposit => nil, :withdrawal => '5.00', :balance => '5.00' })
       account.make_deposit(10)
       account.make_withdrawal(5)
 
@@ -58,8 +68,10 @@ describe Account do
 
   context '#statement' do
     it 'prints an statement' do
+      expect(transaction_class).to receive(:make_deposit).and_return({ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' })
+      expect(statement_class).to receive(:generate_statement).with([{ :date => "20/04/2020", :deposit => '10.00', :withdrawal => nil, :balance => '10.00' }])
       account.make_deposit(10)
-      expect(account.generate_statement).to include '20/04/2020 || 10.00 ||  || 10'
+      account.print_statement
     end
   end
 end

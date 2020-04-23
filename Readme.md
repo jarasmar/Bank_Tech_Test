@@ -12,8 +12,8 @@ Practice for Tech Tests (OO Design and TDD)
 #### Usage
 
 - Open `IRB` in your terminal
-- `load './lib/bank.rb'`
-- `bank = Bank.new`
+- `load './lib/account.rb'`
+- `account = Account.new`
 
 
 #### Running tests
@@ -63,7 +63,7 @@ I can print my bank statement and see all my transactions (date-credit-debit-bal
 
 I am going to start working in a single class 'Account' that will take the main functionality.
 It will evolve into a second class Transaction and then Statement.
-Finally I will build a class Bank that manages all process from an account.
+Finally, if our app will need to manage several accounts, I will build a class Bank that manages all processes from every account.
 The final Domain Model will look something similar to the one below, where the classes on the left side delegate on the right side ones.
 
 
